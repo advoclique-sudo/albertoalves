@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberto Alves Advocacia — Direito Criminal e Direito de Família</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.svg">
+<meta name="description" content="Atendimento jurídico em Direito Criminal e Direito de Família. Orientação segura, confidencial e responsável para situações delicadas. Belo Horizonte, MG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --preto:#101010;
+  --grafite:#222222;
+  --grafite-soft:#2b2b2b;
+  --vinho:#601F2D;
+  --vinho-deep:#4a1822;
+  --dourado:#B5965A;
+  --dourado-soft:#cbb27e;
+  --bege:#F1ECE4;
+  --bege-2:#e7ded1;
+  --branco:#FFFFFF;
+  --texto-claro:#ece7df;
+  --texto-mute:#a9a39a;
+  --linha:rgba(181,150,90,.22);
+
+  --serif:'Playfair Display', Georgia, serif;
+  --serif-alt:'Cormorant Garamond', Georgia, serif;
+  --sans:'Manrope', system-ui, sans-serif;
+
+  --max:1180px;
+  --radius:14px;
+  --shadow:0 24px 60px -28px rgba(0,0,0,.55);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:var(--sans);
+  background:var(--preto);
+  color:var(--texto-claro);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+section{position:relative}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--dourado);font-weight:600;display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--dourado);opacity:.7}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.01em}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.01em;
+  padding:15px 26px;border-radius:50px;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,color .25s;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-gold{background:var(--dourado);color:var(--preto);box-shadow:0 14px 30px -14px rgba(181,150,90,.7)}
+.btn-gold:hover{transform:translateY(-2px);background:var(--dourado-soft);box-shadow:0 20px 40px -16px rgba(181,150,90,.85)}
+.btn-ghost{background:transparent;color:var(--texto-claro);border-color:rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:var(--dourado);color:var(--dourado-soft);transform:translateY(-2px)}
+.btn-wine{background:var(--vinho);color:#fff}
+.btn-wine:hover{background:var(--vinho-deep);transform:translateY(-2px)}
+.btn-dark{background:var(--preto);color:var(--bege)}
+.btn-dark:hover{background:var(--grafite);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.08s}[data-d="2"]{transition-delay:.16s}
+[data-d="3"]{transition-delay:.24s}[data-d="4"]{transition-delay:.32s}[data-d="5"]{transition-delay:.4s}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  transition:background .35s,backdrop-filter .35s,border-color .35s,padding .35s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  background:rgba(16,16,16,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--linha);
+}
+.nav{max-width:var(--max);margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:padding .35s}
+header.scrolled .nav{padding:13px 24px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mark{
+  width:46px;height:46px;border-radius:50%;flex:none;overflow:hidden;
+  border:1.5px solid rgba(181,150,90,.55);
+  box-shadow:0 6px 16px -6px rgba(0,0,0,.6);
+  background:var(--grafite);
+}
+.brand .mark img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.brand .txt strong{font-family:var(--serif);font-size:1.06rem;font-weight:600;color:#fff;display:block;line-height:1.1}
+.brand .txt span{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--dourado)}
+.menu{display:flex;align-items:center;gap:32px}
+.menu nav{display:flex;gap:28px}
+.menu nav a{font-size:.9rem;color:var(--texto-mute);font-weight:500;position:relative;transition:color .25s}
+.menu nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--dourado);transition:width .3s var(--ease)}
+.menu nav a:hover{color:#fff}.menu nav a:hover::after{width:100%}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0 0 0 auto;width:min(82vw,330px);z-index:70;
+  background:var(--grafite);border-left:1px solid var(--linha);
+  transform:translateX(100%);transition:transform .4s var(--ease);
+  padding:96px 30px 36px;display:flex;flex-direction:column;gap:6px;
+}
+.drawer.open{transform:none}
+.drawer a{padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.07);font-size:1.05rem;color:var(--texto-claro)}
+.drawer .btn{margin-top:22px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:65;opacity:0;visibility:hidden;transition:.35s}
+.overlay.open{opacity:1;visibility:visible}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:grayscale(.35) contrast(1.02)}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(100deg, rgba(16,16,16,.97) 0%, rgba(16,16,16,.9) 38%, rgba(74,24,34,.62) 78%, rgba(96,31,45,.45) 100%),
+    radial-gradient(1100px 600px at 12% 18%, rgba(96,31,45,.45), transparent 60%);
+}
+.grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:2}
+.hero-inner{max-width:680px}
+.hero h1{
+  font-size:clamp(2.3rem,5.4vw,4rem);margin:22px 0 22px;color:#fff;
+}
+.hero h1 em{font-style:normal;color:var(--dourado-soft)}
+.hero p.lead{font-size:clamp(1.02rem,2vw,1.22rem);color:var(--texto-mute);max-width:600px;font-weight:300}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 18px}
+.assurance{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--texto-mute)}
+.assurance svg{width:17px;height:17px;color:var(--dourado);flex:none}
+.hero-areas{
+  display:flex;gap:14px;flex-wrap:wrap;margin-top:46px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);
+}
+.hero-areas .pill{display:flex;align-items:center;gap:9px;font-size:.82rem;color:var(--texto-claro);letter-spacing:.04em}
+.hero-areas .dot{width:7px;height:7px;border-radius:50%;background:var(--dourado)}
+
+/* ============ SECTION HEAD ============ */
+.shead{max-width:680px;margin:0 auto 54px;text-align:center}
+.shead h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:18px 0 0;color:#fff}
+.shead.light h2{color:var(--grafite)}
+.shead p{color:var(--texto-mute);margin-top:16px;font-size:1.02rem}
+.sec{padding:clamp(72px,9vw,118px) 0}
+
+/* ============ PROBLEM CARDS ============ */
+.problem{background:var(--preto)}
+.cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.pcard{border-radius:20px;padding:42px 38px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:100%}
+.pcard .ic{width:54px;height:54px;border-radius:13px;display:grid;place-items:center;margin-bottom:22px}
+.pcard .ic svg{width:26px;height:26px}
+.pcard h3{font-size:1.5rem;margin-bottom:8px}
+.pcard .sub{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:22px}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:30px;flex:1}
+.pcard li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;line-height:1.45}
+.pcard li svg{width:18px;height:18px;flex:none;margin-top:3px}
+
+.crime{background:linear-gradient(160deg,var(--grafite) 0%,#1c1c1c 60%,#241318 100%);border:1px solid rgba(181,150,90,.18)}
+.crime .ic{background:var(--vinho);color:var(--dourado-soft)}
+.crime h3{color:#fff}.crime .sub{color:var(--dourado)}
+.crime li{color:var(--texto-claro)}.crime li svg{color:var(--dourado)}
+
+.family{background:linear-gradient(160deg,var(--bege) 0%,var(--bege-2) 100%);border:1px solid rgba(96,31,45,.16);color:var(--grafite)}
+.family .ic{background:var(--vinho);color:var(--bege)}
+.family h3{color:var(--vinho-deep)}.family .sub{color:var(--vinho)}
+.family li{color:#3c3530}.family li svg{color:var(--vinho)}
+.family .btn-wine{box-shadow:0 14px 30px -16px rgba(96,31,45,.6)}
+
+/* ============ STEPS ============ */
+.steps{background:linear-gradient(180deg,#141414,#101010)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.step{position:relative;padding:34px 28px;border:1px solid var(--linha);border-radius:18px;background:rgba(34,34,34,.5)}
+.step .num{font-family:var(--serif);font-size:2.6rem;color:var(--vinho);line-height:1;position:absolute;top:22px;right:26px;opacity:.55}
+.step .ic{width:50px;height:50px;border-radius:12px;background:rgba(181,150,90,.12);border:1px solid var(--linha);display:grid;place-items:center;margin-bottom:20px}
+.step .ic svg{width:24px;height:24px;color:var(--dourado)}
+.step h3{font-size:1.22rem;color:#fff;margin-bottom:9px}
+.step p{font-size:.94rem;color:var(--texto-mute)}
+.steps-line{position:absolute;top:58px;left:16%;right:16%;height:1px;background:repeating-linear-gradient(90deg,var(--dourado) 0 8px,transparent 8px 18px);opacity:.4;z-index:0}
+
+/* ============ TRUST ============ */
+.trust{background:var(--vinho-deep);overflow:hidden}
+.trust::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 500px at 85% 10%,rgba(181,150,90,.18),transparent 60%)}
+.trust .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.trust h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:#fff;max-width:430px}
+.trust .lead{color:rgba(255,255,255,.78);margin-top:18px;font-weight:300}
+.trust-list{display:flex;flex-direction:column;gap:4px}
+.trust-item{display:flex;gap:16px;align-items:center;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.13)}
+.trust-item:last-child{border-bottom:0}
+.trust-item .tc{width:40px;height:40px;border-radius:10px;background:rgba(181,150,90,.16);border:1px solid rgba(181,150,90,.4);display:grid;place-items:center;flex:none}
+.trust-item .tc svg{width:20px;height:20px;color:var(--dourado-soft)}
+.trust-item span{font-size:1rem;color:#fff;font-weight:500}
+
+/* ============ ABOUT ============ */
+.about{background:var(--bege);color:var(--grafite)}
+.about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.about-photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow);background:linear-gradient(160deg,var(--grafite),var(--vinho-deep))}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(.12) contrast(1.02)}
+.about-photo .badge{position:absolute;left:18px;bottom:18px;background:rgba(16,16,16,.86);backdrop-filter:blur(6px);border:1px solid var(--linha);border-radius:12px;padding:12px 16px}
+.about-photo .badge b{color:var(--dourado-soft);font-family:var(--serif);font-size:.95rem;display:block}
+.about-photo .badge small{color:var(--texto-mute);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.about h2{font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--vinho-deep);margin:16px 0 18px}
+.about p.body{font-size:1.05rem;color:#4a423b;max-width:560px}
+.about-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:32px}
+.about-meta .m{display:flex;gap:13px;align-items:flex-start}
+.about-meta .m svg{width:20px;height:20px;color:var(--vinho);flex:none;margin-top:3px}
+.about-meta .m b{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vinho);font-weight:700}
+.about-meta .m span{font-size:.98rem;color:#3c3530}
+
+/* ============ CTA BAND ============ */
+.ctaband{background:linear-gradient(135deg,var(--grafite) 0%,var(--preto) 45%,var(--vinho-deep) 130%);text-align:center;overflow:hidden}
+.ctaband::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 50% -10%,rgba(181,150,90,.16),transparent 60%)}
+.ctaband .wrap{position:relative;z-index:1;max-width:760px}
+.ctaband h2{font-size:clamp(2rem,4.4vw,3rem);color:#fff;margin:18px 0 18px}
+.ctaband p{color:var(--texto-mute);font-size:1.08rem;margin-bottom:34px;font-weight:300}
+.ctaband .disc{margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.45);max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ============ FOOTER ============ */
+footer{background:#0a0a0a;border-top:1px solid var(--linha);padding:64px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand .brand{margin-bottom:18px}
+.foot-brand p{color:var(--texto-mute);font-size:.92rem;max-width:340px}
+.foot-col h4{font-family:var(--sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dourado);margin-bottom:18px;font-weight:600}
+.foot-col a,.foot-col p{display:block;color:var(--texto-mute);font-size:.93rem;margin-bottom:11px;transition:color .25s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+.foot-bottom p{font-size:.8rem;color:var(--texto-mute)}
+.foot-disc{font-size:.78rem;color:rgba(255,255,255,.4);max-width:720px;margin-top:18px;line-height:1.5}
+
+/* ============ FLOAT WHATSAPP ============ */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:80;
+  display:flex;align-items:center;gap:0;background:#1f9d56;color:#fff;
+  border-radius:50px;padding:0;box-shadow:0 16px 36px -12px rgba(31,157,86,.7);
+  transition:gap .3s var(--ease),padding .3s var(--ease),transform .25s;overflow:hidden;
+}
+.wa-float:hover{transform:translateY(-3px);gap:10px;padding-right:22px}
+.wa-float .wi{width:58px;height:58px;display:grid;place-items:center;flex:none}
+.wa-float .wi svg{width:30px;height:30px}
+.wa-float .wt{max-width:0;white-space:nowrap;font-weight:600;font-size:.92rem;transition:max-width .3s var(--ease)}
+.wa-float:hover .wt{max-width:160px}
+.wa-pulse{position:absolute;inset:0;border-radius:50px;box-shadow:0 0 0 0 rgba(31,157,86,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,157,86,.45)}70%{box-shadow:0 0 0 16px rgba(31,157,86,0)}100%{box-shadow:0 0 0 0 rgba(31,157,86,0)}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:920px){
+  .menu nav,.menu .btn{display:none}
+  .burger{display:flex}
+  .trust .wrap,.about .wrap{grid-template-columns:1fr;gap:40px}
+  .about-photo{max-width:360px;margin:0 auto}
+}
+@media(max-width:760px){
+  .cards2{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .steps-line{display:none}
+  .row2{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+  .hero{padding:108px 0 64px}
+  .hero-areas{gap:10px 18px}
+  form.card{padding:30px 22px}
+}
+@media(max-width:480px){
+  .hero-cta .btn{width:100%}
+  .about-meta{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+  .wa-pulse{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="top">
+  <div class="nav">
+    <a href="#top" class="brand" aria-label="Alberto Alves Advocacia — início">
+      <span class="txt"><strong>Alberto Alves</strong><span>Advocacia</span></span>
+    </a>
+    <div class="menu">
+      <nav>
+        <a href="#top">Início</a>
+        <a href="#criminal">Direito Criminal</a>
+        <a href="#familia">Direito de Família</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="btn btn-gold" data-wa="geral" href="#">Falar com um advogado</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <a href="#top">Início</a>
+  <a href="#criminal">Direito Criminal</a>
+  <a href="#familia">Direito de Família</a>
+  <a href="#atuacao">Como atuamos</a>
+  <a href="#contato">Contato</a>
+  <a class="btn btn-gold" data-wa="geral" href="#">Falar com um advogado</a>
+</aside>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80" alt="" onerror="this.style.display='none'">
+  </div>
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow reveal">Direito Criminal &amp; Direito de Família</span>
+      <h1 class="reveal" data-d="1">Problemas jurídicos delicados exigem <em>orientação segura</em> e atuação responsável.</h1>
+      <p class="lead reveal" data-d="2">Atendimento jurídico em Direito Criminal e Direito de Família para pessoas que precisam compreender seus direitos e tomar decisões com mais segurança.</p>
+      <div class="hero-cta reveal" data-d="3">
+        <a class="btn btn-gold" data-wa="geral" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.196zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Falar com um advogado
+        </a>
+        <a class="btn btn-ghost" href="#criminal">Conhecer as áreas de atuação</a>
+      </div>
+      <div class="assurance reveal" data-d="4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Atendimento confidencial e análise individual do caso.
+      </div>
+      <div class="hero-areas reveal" data-d="5">
+        <span class="pill"><span class="dot"></span>Defesa criminal</span>
+        <span class="pill"><span class="dot"></span>Família e sucessões</span>
+        <span class="pill"><span class="dot"></span>Atendimento presencial e online</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="sec problem" id="areas">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow reveal" style="justify-content:center">Identifique sua situação</span>
+      <h2 class="reveal" data-d="1">Você está enfrentando alguma destas situações?</h2>
+      <p class="reveal" data-d="2">Cada caso é único. O primeiro passo é entender o que está acontecendo e quais medidas podem ser avaliadas.</p>
+    </div>
+    <div class="cards2">
+      <!-- CRIMINAL -->
+      <div class="pcard crime reveal" id="criminal" data-d="1">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="sub">Direito Criminal</span>
+        <h3>Defesa e acompanhamento criminal</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Prisão em flagrante</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Intimação ou investigação</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Acusação criminal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Audiência ou processo em andamento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Necessidade de defesa ou acompanhamento jurídico</li>
+        </ul>
+        <a class="btn btn-gold" data-wa="criminal" href="#">Buscar orientação criminal</a>
+      </div>
+      <!-- FAMÍLIA -->
+      <div class="pcard family reveal" id="familia" data-d="2">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.3-7-9.5A4.5 4.5 0 0112 8a4.5 4.5 0 017 3.5C19 16.7 12 21 12 21z" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="sub">Direito de Família</span>
+        <h3>Soluções para questões familiares</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Divórcio ou dissolução de união estável</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Guarda e convivência com os filhos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Pensão alimentícia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Inventário e partilha de bens</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Conflitos familiares que precisam de solução jurídica</li>
+        </ul>
+        <a class="btn btn-wine" data-wa="familia" href="#">Buscar orientação familiar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS ============ -->
+<section class="sec steps" id="atuacao">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow reveal" style="justify-content:center">Como atuamos</span>
+      <h2 class="reveal" data-d="1">Orientação jurídica desde o primeiro contato</h2>
+      <p class="reveal" data-d="2">Um caminho simples e claro para você entender sua situação e os próximos passos.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="steps-line" aria-hidden="true"></div>
+      <div class="step reveal" data-d="1">
+        <span class="num">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linejoin="round"/></svg></div>
+        <h3>Conte o que aconteceu</h3>
+        <p>Você apresenta brevemente sua situação por meio do WhatsApp ou do formulário.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <span class="num">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg></div>
+        <h3>O caso é analisado</h3>
+        <p>As informações e os documentos são avaliados de maneira individual e cuidadosa.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <span class="num">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Entenda os próximos passos</h3>
+        <p>Você recebe orientação sobre as medidas jurídicas possíveis para o seu caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="sec trust">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--dourado-soft)">Responsabilidade</span>
+      <h2>Situações delicadas precisam ser tratadas com responsabilidade</h2>
+      <p class="lead">A condução de cada caso é feita com discrição, atenção aos detalhes e respeito ao momento que você está vivendo.</p>
+    </div>
+    <div class="trust-list reveal" data-d="2">
+      <div class="trust-item"><span class="tc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3" stroke-linecap="round"/></svg></span><span>Atendimento confidencial</span></div>
+      <div class="trust-item"><span class="tc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linejoin="round"/></svg></span><span>Comunicação clara e objetiva</span></div>
+      <div class="trust-item"><span class="tc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 12h16" stroke-linecap="round"/></svg></span><span>Análise individual de cada situação</span></div>
+      <div class="trust-item"><span class="tc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke-linejoin="round"/></svg></span><span>Atuação responsável e estratégica</span></div>
+      <div class="trust-item"><span class="tc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Acompanhamento durante as etapas do caso</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec about" id="escritorio">
+  <div class="wrap">
+    <div class="about-photo reveal">
+      <img src="alberto-alves.jpg" alt="Alberto Alves, advogado responsável pelo atendimento">
+      <div class="badge">
+        <b>Alberto Alves</b>
+        <small>OAB/MG 218.210</small>
+      </div>
+    </div>
+    <div class="reveal" data-d="2">
+      <span class="eyebrow">O escritório</span>
+      <h2>Alberto Alves Advocacia</h2>
+      <p class="body">O escritório oferece atendimento jurídico nas áreas Criminal e de Família, buscando compreender as particularidades de cada situação e orientar o cliente com clareza, responsabilidade e discrição.</p>
+      <div class="about-meta">
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6z" stroke-linejoin="round"/></svg><div><b>Inscrição</b><span>OAB/MG 218.210</span></div></div>
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Atendimento</b><span>Belo Horizonte e região — MG</span></div></div>
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18" /></svg><div><b>Formato</b><span>Presencial e online</span></div></div>
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke-linejoin="round"/></svg><div><b>Áreas</b><span>Criminal &amp; Família</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="sec ctaband" id="contato">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center;color:var(--dourado-soft)">Atendimento</span>
+    <h2 class="reveal" data-d="1">Não enfrente uma situação jurídica delicada sem orientação.</h2>
+    <p class="reveal" data-d="2">Converse com um advogado e entenda quais medidas podem ser avaliadas para o seu caso.</p>
+    <div class="reveal" data-d="3">
+      <a class="btn btn-gold" data-wa="geral" href="#" style="font-size:1.02rem;padding:17px 32px">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.196zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Solicitar atendimento pelo WhatsApp
+      </a>
+    </div>
+    <p class="disc reveal" data-d="4">O envio da mensagem não gera contratação automática. O atendimento depende da análise inicial da situação.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="rodape">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+              <span class="txt"><strong>Alberto Alves</strong><span>Advocacia</span></span>
+        </a>
+        <p>Atendimento jurídico em Direito Criminal e Direito de Família, com clareza, responsabilidade e discrição.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a data-wa="geral" href="#">WhatsApp: (31) 99779-1702</a>
+        <a href="tel:+5531997791702">Telefone: (31) 99779-1702</a>
+        <a href="mailto:mateoalves@gmail.com">mateoalves@gmail.com</a>
+        <p>R. Paulo Brandão, 518 — Santa Efigênia<br>Belo Horizonte/MG — CEP 30.240-420</p>
+      </div>
+      <div class="foot-col">
+        <h4>Institucional</h4>
+        <a href="#criminal">Direito Criminal</a>
+        <a href="#familia">Direito de Família</a>
+        <a href="#escritorio">O escritório</a>
+        <a href="#privacidade">Política de Privacidade</a>
+        <a href="#termos">Termos de Uso</a>
+        <p>OAB/MG 218.210</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="year"></span> Alberto Alves Advocacia — OAB/MG 218.210. Todos os direitos reservados.</p>
+      <p>Belo Horizonte — Minas Gerais</p>
+    </div>
+    <p class="foot-disc">As informações apresentadas neste site possuem caráter informativo e não representam promessa ou garantia de resultado. Conteúdo em conformidade com as normas de publicidade da advocacia (Provimento OAB).</p>
+  </div>
+</footer>
+
+<!-- ============ FLOAT WHATSAPP ============ -->
+<a class="wa-float" data-wa="geral" href="#" aria-label="Falar pelo WhatsApp">
+  <span class="wa-pulse"></span>
+  <span class="wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.196zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></span>
+  <span class="wt">Fale conosco</span>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var WA_NUMBER = "5531997791702";
+  var MSGS = {
+    criminal: "Olá, gostaria de solicitar uma orientação sobre uma situação relacionada ao Direito Criminal.",
+    familia:  "Olá, gostaria de solicitar uma orientação sobre uma situação relacionada ao Direito de Família.",
+    geral:    "Olá, encontrei o site da Alberto Alves Advocacia e gostaria de solicitar atendimento."
+  };
+  function waLink(key){ return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(MSGS[key]||MSGS.geral); }
+
+  // bind all WhatsApp triggers
+  document.querySelectorAll('[data-wa]').forEach(function(el){
+    el.setAttribute('href', waLink(el.getAttribute('data-wa')));
+    el.setAttribute('target','_blank');
+    el.setAttribute('rel','noopener');
+  });
+
+  // header scroll state
+  var header = document.getElementById('top');
+  function onScroll(){ window.scrollY > 24 ? header.classList.add('scrolled') : header.classList.remove('scrolled'); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile drawer
+  var burger=document.getElementById('burger'), drawer=document.getElementById('drawer'), overlay=document.getElementById('overlay');
+  function toggle(open){
+    drawer.classList.toggle('open',open); overlay.classList.toggle('open',open);
+    burger.classList.toggle('open',open); burger.setAttribute('aria-expanded',open);
+    drawer.setAttribute('aria-hidden',!open); document.body.style.overflow=open?'hidden':'';
+  }
+  burger.addEventListener('click',function(){ toggle(!drawer.classList.contains('open')); });
+  overlay.addEventListener('click',function(){ toggle(false); });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.14, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // year
+  var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }
+})();
+</script>
+</body>
+</html>
