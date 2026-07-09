@@ -561,11 +561,24 @@ footer{background:#e6ddcd;border-top:1px solid var(--linha);padding:64px 0 30px;
   };
   function waLink(key){ return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(MSGS[key]||MSGS.geral); }
 
+  // Google Ads conversion tracking (Contato) - AW-16697812392
+  function reportContato(){
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {'send_to': 'AW-16697812392/AyxpCJKs4c0cEKjLkZo-'});
+    }
+  }
+
   // bind all WhatsApp triggers
   document.querySelectorAll('[data-wa]').forEach(function(el){
     el.setAttribute('href', waLink(el.getAttribute('data-wa')));
     el.setAttribute('target','_blank');
     el.setAttribute('rel','noopener');
+    el.addEventListener('click', reportContato);
+  });
+
+  // bind phone-call triggers
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+    el.addEventListener('click', reportContato);
   });
 
   // header scroll state
